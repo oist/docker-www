@@ -78,5 +78,6 @@ COPY conf/php/conf.d/apc.ini /etc/php.d/
 
 EXPOSE 80 443
 
-ENTRYPOINT ["/usr/sbin/httpd"]
-CMD ["-D", "FOREGROUND"]
+COPY run.sh /tmp/run.sh
+RUN chmod +x /tmp/run.sh
+ENTRYPOINT ["/tmp/run.sh"]
